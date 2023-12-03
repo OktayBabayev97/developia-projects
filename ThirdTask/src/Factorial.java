@@ -9,7 +9,7 @@ public class Factorial {
 			System.out.println("Please enter zero or a number greater than zero");
 			number = scan.nextInt();
 			if (number > 0) {
-				for (int i = 2; i <= number; i++) {
+				for (int i = 1; i <= number; i++) {
 					result *= i;
 				}
 				System.out.println(number + "!= " + result);
