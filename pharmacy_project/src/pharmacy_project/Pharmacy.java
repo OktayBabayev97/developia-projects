@@ -91,6 +91,8 @@ public class Pharmacy {
 				transaction.setMedicineName(saledMedicine.getName());
 			} else {
 				transaction.setStatus(TransactionStatus.FAILED);
+				transaction.setId(Pharmacy.id);
+				transaction.setMedicineName(medicine);
 				throw new MedicineNotFoundException("This medicine ( " + medicine + " ) is not exist and cannot saled");
 			}
 		} catch (MedicineNotFoundException e) {
@@ -177,8 +179,13 @@ public class Pharmacy {
 					saledMedicine.setCount(saledMedicine.getCount() - 1);
 				}
 				saledMedicine.setCount(saledMedicine.getCount());
-				if (medicine != null)
+				if (medicine != null) {
 					medicine.setCount(medicine.getCount() + 1);
+				} else {
+					Medicine removedMedicine = new Medicine(saledMedicine.getId(), saledMedicine.getName(),
+							saledMedicine.getPrice(), 1);
+					listOfMedicines.add(removedMedicine);
+				}
 				break;
 			} else if (tr.getId() == transactionId && tr.getStatus() == TransactionStatus.FAILED) {
 				try {

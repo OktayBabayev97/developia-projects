@@ -54,9 +54,4 @@ public class Medicine {
 		return "Medicine [id=" + id + ", name=" + name + ", price=" + price + ", count=" + count + "]\n";
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Medicine name--" + name + "";
-//	}
-	
 }

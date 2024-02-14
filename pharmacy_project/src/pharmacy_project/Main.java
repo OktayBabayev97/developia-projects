@@ -35,13 +35,13 @@ public class Main {
 		pharmacy.sellMedicine("Antibiotik", user.getId());
 		pharmacy.sellMedicine("Antibiotik", user2.getId());
 		pharmacy.addMedicine(antibiotik2);
-//		pharmacy.removeMedicine("Antibiotik");
+		pharmacy.removeMedicine("Antibiotik");
 
 		pharmacy.sellMedicine("Suprastin", user.getId());
 		pharmacy.sellMedicine("Suprastin", user.getId());
 		pharmacy.sellMedicine("Griphot", user.getId());
 		pharmacy.sellMedicine("Griphot", user.getId());
-//		pharmacy.sellMedicine("Suprastn", user.getId());
+		pharmacy.sellMedicine("Suprastn", user.getId());
 		pharmacy.reverseTransaction(1);
 
 		List<Transaction> userTransactions = pharmacy.getTransactionsByUserId(2);
