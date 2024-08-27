@@ -47,6 +47,8 @@ public class CategoryService {
 			throw new NotFoundException("Category not found");
 		}
 		category.get().getProducts().add(product);
+		// product.getCategory().setName(category.get().getName());
+		product.setCategory(category.get());
 		categoryRepository.save(category.get());
 		return category.get();
 	}

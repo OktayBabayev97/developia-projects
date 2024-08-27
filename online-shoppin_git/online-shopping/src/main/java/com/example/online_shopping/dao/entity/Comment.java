@@ -30,6 +30,7 @@ public class Comment {
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
+	@JsonIgnore
 	private User user;
 
 	public Long getId() {

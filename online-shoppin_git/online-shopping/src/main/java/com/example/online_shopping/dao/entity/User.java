@@ -39,7 +39,6 @@ public class User implements UserDetails {
 	private List<Order> orders;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
 	private List<Basket> baskets;
 
 	@OneToMany(mappedBy = "user")
@@ -47,7 +46,7 @@ public class User implements UserDetails {
 	private List<Rating> ratings;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	@JsonIgnore
+	//@JsonIgnore
 	private List<Comment> comments;
 
 	public Long getId() {

@@ -93,10 +93,10 @@ public class OrderService {
 	}
 
 	private Double calculateTotalPrice(Basket basket) {
-		List<Product> selectedBooks = basket.getProducts();
+		List<Product> selectedProducts = basket.getProducts();
 		Double totalPrice = Double.valueOf(0);
-		for (Product book : selectedBooks) {
-			totalPrice += book.getPrice();
+		for (Product product : selectedProducts) {
+			totalPrice += product.getPrice();
 		}
 		return totalPrice;
 	}

@@ -1,6 +1,11 @@
 package com.example.online_shopping.dao.entity;
 
+import java.time.LocalDateTime;
 import java.util.List;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,8 +22,12 @@ public class Basket {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@CreationTimestamp
+	private LocalDateTime expireDate;
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
+	@JsonIgnore
 	private User user;
 
 	@ManyToMany
@@ -31,6 +40,14 @@ public class Basket {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public LocalDateTime getExpireDate() {
+		return expireDate;
+	}
+
+	public void setExpireDate(LocalDateTime expireDate) {
+		this.expireDate = expireDate;
 	}
 
 	public User getUser() {

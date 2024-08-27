@@ -24,6 +24,6 @@ public class CouponService {
 	            throw new NotFoundException("Invalid coupon code");
 
 	        }
-	        return totalAmount * (100 - coupon.get().getDiscountPercentage() / 100);
+	        return totalAmount * ((100 - coupon.get().getDiscountPercentage()) / 100);
 	    }
 }

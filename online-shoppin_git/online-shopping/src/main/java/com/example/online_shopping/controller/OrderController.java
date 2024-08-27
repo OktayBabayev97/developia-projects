@@ -28,14 +28,14 @@ public class OrderController {
 		return orderService.getAllOrdersByUserId(userId);
 	}
 
-	@GetMapping("/date-range")
-	public List<Order> getOrdersByUserIdAndDateRange(@PathVariable Long userId, @RequestParam LocalDateTime startDate,
-			@RequestParam LocalDateTime endDate) {
+	@GetMapping("/date-range/{userId}")
+	public List<Order> getOrdersByUserIdAndDateRange(@PathVariable("userId") Long userId,
+			@RequestParam("start") LocalDateTime startDate, @RequestParam("end") LocalDateTime endDate) {
 		return orderService.getOrdersByUserIdAndDateRange(userId, startDate, endDate);
 	}
 
 	@PostMapping("/{userId}")
-	public OrderDto createOrder(@PathVariable("userId") Long userId, String couponCode) {
+	public OrderDto createOrder(@PathVariable("userId") Long userId, @RequestParam("coupon"	) String couponCode) {
 		return orderService.createOrder(userId, couponCode);
 	}
 
